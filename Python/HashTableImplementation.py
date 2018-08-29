@@ -19,7 +19,9 @@ class HashTable:
         hashsum = 0
         for idx, c in enumerate(key):
             hashsum += (idx + len(key)) ** ord(c)
+            print("hashsum before mod {}".format(hashsum))
             hashsum = hashsum % self.capacity
+            print("hashsum after mod {}".format(hashsum))
         return hashsum
 
     # increment the size of hashtable
@@ -34,14 +36,14 @@ class HashTable:
         if node is None:
             self.buckets[index] = Node(key, value)
             return
-        else:
-            # iterate through linked list until next node is none
+        
+        # iterate through linked list until next node is none
+        prev = node
+        while node is not None:
             prev = node
-            while node != None:
-                prev = node
-                 node = node.next
-            # once you find the end of linkedlist, add node
-            prev.next = Node(key, value)
+            node = node.next
+        # once you find the end of linkedlist, add node
+        prev.next = Node(key, value)
 
     # compute index for the key using hash function
     # go to bucket for that index
@@ -64,6 +66,7 @@ class HashTable:
     def remove(self, key):
         index = self.hash(key)
         node = self.buckets[index]
+        prev = None 
         while node is not None and node.key != key:
             prev = node
             node = node.next
