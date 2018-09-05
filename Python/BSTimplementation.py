@@ -20,7 +20,7 @@ class Node:
                 else:
                     self.right.insert(value)
         else:
-            self.data = value
+            self.data = Node(value)
 
     def contains(self, value):
         if value == self.data:
@@ -60,6 +60,32 @@ class Node:
         if self.right != None:
             self.right.printPostorder()
         print(self.data)
+
+    # start from root
+    # go to left child, right child     
+    def printBFS(self):
+
+
+
+    def printGivenLevel(self, root, level):
+        if self.root is None:
+            return
+        if level == 1:
+            print(self
+
+    def height(node):
+        if node is None:
+            return 0
+        else:
+            lheight = height(node.left)
+            rheight = height(node.left)
+
+            if lheight > rheight:
+                return lheight
+            else:
+                return rheight
+        
+        
 
 
     # no child

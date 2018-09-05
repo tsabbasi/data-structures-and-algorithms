@@ -80,7 +80,9 @@ class HashTable:
             else:
                 prev.next = prev.next.next
             return result
-    def countFrequency(self, string):
+
+
+    #def countFrequency(self, string):
         
             
         
